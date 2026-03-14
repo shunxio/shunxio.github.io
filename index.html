@@ -22,10 +22,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', -apple-system, sans-serif; scroll-behavior: smooth; }
         .pku-gradient { background: linear-gradient(135deg, #8C0000 0%, #B30000 100%); }
-        .card-hover:hover { transform: translateY(-4px); transition: all 0.3s ease; border-color: #8C0000; }
-        /* Smooth fade-in for image */
+        .card-hover:hover { transform: translateY(-4px); transition: all 0.3s ease; border-color: #8C0000; box-shadow: 0 10px 30px -10px rgba(140, 0, 0, 0.15); }
         .profile-img { opacity: 0; transition: opacity 0.5s ease-in-out; }
         .profile-img.loaded { opacity: 1; }
+        .section-title { position: relative; display: inline-block; }
+        .section-title::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 40px; height: 3px; background-color: #8C0000; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -34,51 +35,54 @@
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
         <div class="max-w-5xl mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="https://www.pku.edu.cn/images/logo.png" alt="PKU Logo" class="h-10 object-contain" onerror="this.src='https://upload.wikimedia.org/wikipedia/zh/thumb/e/e1/Peking_University_seal.svg/1200px-Peking_University_seal.svg.png'">
+                <img src="./logo.png" alt="My Logo" class="h-10 object-contain">
                 <div class="h-8 w-[1px] bg-slate-200 mx-1"></div>
-                <span class="text-lg font-bold text-pku-red hidden sm:block">Medical AI Lab</span>
             </div>
             <div class="space-x-6 hidden md:flex font-medium text-slate-600">
                 <a href="#about" class="hover:text-pku-red transition-colors">About</a>
+                <a href="#news" class="hover:text-pku-red transition-colors">News</a>
                 <a href="#education" class="hover:text-pku-red transition-colors">Education</a>
                 <a href="#publications" class="hover:text-pku-red transition-colors">Publications</a>
-                <a href="#honors" class="hover:text-pku-red transition-colors">Honors</a>
                 <a href="#projects" class="hover:text-pku-red transition-colors">Projects</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header id="about" class="py-16 bg-white">
+    <header id="about" class="py-20 bg-white">
         <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
             <!-- Profile Image Container -->
-            <div class="w-48 h-48 rounded-2xl bg-slate-100 flex-shrink-0 pku-gradient flex items-center justify-center shadow-2xl relative overflow-hidden group">
-                <!-- User Avatar (Instructions: Upload your photo as profile.jpg) -->
-                <img src="profile.jpg" alt="Yujie Xiao" class="profile-img absolute inset-0 w-full h-full object-cover z-10" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
-                <!-- Fallback Icon if image not found -->
-                <i class="fas fa-user-graduate text-white text-6xl group-hover:scale-110 transition-transform"></i>
+            <div class="w-52 h-52 rounded-2xl bg-slate-100 flex-shrink-0 pku-gradient flex items-center justify-center shadow-2xl relative overflow-hidden group">
+                <!-- Using profile.png as requested -->
+                <img src="profile.png" alt="Yujie Xiao" class="profile-img absolute inset-0 w-full h-full object-cover z-10" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                <i class="fas fa-user-graduate text-white text-7xl group-hover:scale-110 transition-transform"></i>
             </div>
             
             <div class="flex-1 text-center md:text-left">
-                <h1 class="text-4xl font-bold text-slate-900 mb-1 leading-tight">
+                <h1 class="text-5xl font-extrabold text-slate-900 mb-2 leading-tight tracking-tight">
                     Yujie Xiao<br>
-                    <span class="text-2xl font-medium text-pku-red">肖宇杰</span>
+                    <span class="text-3xl font-semibold text-pku-red">肖宇杰</span>
                 </h1>
-                <p class="text-xl text-slate-700 font-medium mb-4">Undergraduate in Medical Imaging Technology, Peking University</p>
-                <p class="text-slate-600 leading-relaxed mb-6 max-w-2xl">
-                    Focused on Medical Artificial Intelligence, specifically multimodal representation learning and disease prediction using physiological signals (ECG/PPG). 
-                    Currently ranked <strong>1/23</strong> in the major, with a strong commitment to bridging AI algorithms and clinical practice.
-                </p>
+                <p class="text-xl text-slate-700 font-medium mb-4">Undergraduate Student @ Peking University</p>
+                
+                <div class="text-slate-600 leading-relaxed mb-8 max-w-3xl space-y-4">
+                    <p>
+                        I am a senior student at <strong>Peking University</strong>, School of Medical Technology, majoring in Medical Imaging Technology. I am honored to be ranked <strong>1st out of 23</strong> students in my major.
+                    </p>
+                    <p>
+                        My research interests focus on <strong>Medical Artificial Intelligence</strong>, specifically multimodal representation learning using physiological signals (ECG/PPG) for systemic health profiling and disease prediction. I am passionate about bridging advanced deep learning algorithms with clinical diagnostic challenges.
+                    </p>
+                </div>
                 
                 <!-- Social Links -->
                 <div class="flex flex-wrap justify-center md:justify-start gap-3">
-                    <a href="https://scholar.google.com/citations?user=-UCNBfkAAAAJ" target="_blank" class="px-5 py-2.5 bg-pku-red text-white hover:bg-pku-dark rounded-xl transition-all flex items-center gap-2 shadow-lg shadow-red-900/10">
-                        <i class="fas fa-graduation-cap"></i> Google Scholar
+                    <a href="https://scholar.google.com/citations?user=-UCNBfkAAAAJ" target="_blank" class="px-5 py-2.5 bg-pku-red text-white hover:bg-pku-dark rounded-xl transition-all flex items-center gap-2 shadow-lg shadow-red-900/10 font-semibold">
+                        <i class="fas fa-graduation-cap"></i> Scholar
                     </a>
-                    <a href="https://github.com/shunxio" target="_blank" class="px-5 py-2.5 bg-slate-800 text-white hover:bg-black rounded-xl transition-all flex items-center gap-2 shadow-lg">
+                    <a href="https://github.com/shunxio" target="_blank" class="px-5 py-2.5 bg-slate-800 text-white hover:bg-black rounded-xl transition-all flex items-center gap-2 shadow-lg font-semibold">
                         <i class="fab fa-github"></i> GitHub
                     </a>
-                    <a href="mailto:xiaoyujie@stu.pku.edu.cn" class="px-5 py-2.5 bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-xl transition-all flex items-center gap-2">
+                    <a href="mailto:xiaoyujie@stu.pku.edu.cn" class="px-5 py-2.5 bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-xl transition-all flex items-center gap-2 font-semibold border border-slate-200">
                         <i class="fas fa-envelope"></i> Email
                     </a>
                 </div>
@@ -88,161 +92,208 @@
 
     <main class="max-w-5xl mx-auto px-6 py-12 space-y-24">
 
+        <!-- News Section -->
+        <section id="news">
+            <h2 class="text-2xl font-bold section-title mb-8 text-pku-red tracking-wide uppercase text-sm">Recent News</h2>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 space-y-4">
+                <div class="flex gap-4">
+                    <span class="text-pku-red font-bold text-sm whitespace-nowrap">Dec 2025</span>
+                    <p class="text-slate-700 text-sm">First-author paper on CCTA outcome prediction via ECG foundation models is under review at <strong>npj Digital Medicine</strong>.</p>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-pku-red font-bold text-sm whitespace-nowrap">Oct 2025</span>
+                    <p class="text-slate-700 text-sm">Project "AI-based Chest Pain Triage" selected for PKU's inaugural <strong>"Superior Star" Program</strong> (Top 12 university-wide).</p>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-pku-red font-bold text-sm whitespace-nowrap">Aug 2025</span>
+                    <p class="text-slate-700 text-sm">Awarded the <strong>National Scholarship</strong> (Top 1%) and named <strong>Merit Student Pacesetter</strong> of Peking University.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Education -->
         <section id="education">
-            <h2 class="text-2xl font-bold border-l-4 border-pku-red pl-4 mb-8 text-pku-red">Education</h2>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col md:flex-row justify-between gap-4">
-                <div>
+            <h2 class="text-2xl font-bold section-title mb-8 text-pku-red tracking-wide uppercase text-sm">Education</h2>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col md:flex-row justify-between gap-6">
+                <div class="flex-1">
                     <h3 class="text-xl font-bold text-slate-900">Peking University (PKU)</h3>
-                    <p class="text-pku-red font-semibold mb-4 text-sm uppercase tracking-wide">B.S. in Medical Imaging Technology</p>
-                    <ul class="space-y-3 text-slate-600">
-                        <li class="flex items-center gap-2">
-                            <i class="fas fa-check-circle text-pku-red text-sm"></i>
-                            <span><strong>GPA:</strong> 3.8 / 4.0 | <strong>Ranking:</strong> 1 / 23</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="fas fa-check-circle text-pku-red text-sm"></i>
-                            <span>Recipient of the <strong>National Scholarship</strong></span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-book text-pku-red text-sm mt-1"></i>
-                            <span><strong>Key Courses:</strong> Digital Signal Processing (98.2), Linear Algebra (95.0), Mathematical Analysis (93.1)</span>
-                        </li>
-                    </ul>
+                    <p class="text-pku-red font-semibold mb-4 italic">Major in Medical Imaging Technology, Institute of Medical Technology</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-8 text-slate-600 text-sm">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-chart-line text-pku-red"></i>
+                            <span><strong>GPA:</strong> 3.8 / 4.0</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-trophy text-pku-red"></i>
+                            <span><strong>Ranking:</strong> 1 / 23</span>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <p class="text-sm font-bold text-slate-800 mb-2 underline decoration-pku-red/30">Selected Coursework:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-slate-50 text-slate-600 rounded-lg border border-slate-200 text-xs font-medium">Digital Signal Processing (98.2)</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-600 rounded-lg border border-slate-200 text-xs font-medium">Linear Algebra (95.0)</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-600 rounded-lg border border-slate-200 text-xs font-medium">Mathematical Analysis (93.1)</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-slate-500 font-medium md:text-right">
-                    <p>Sept. 2023 - June 2027</p>
-                    <p class="text-sm">Beijing, China</p>
+                <div class="text-slate-500 font-medium md:text-right text-sm">
+                    <p class="text-slate-900 font-bold">2023 - 2027 (Expected)</p>
+                    <p>Beijing, China</p>
                 </div>
             </div>
         </section>
 
         <!-- Publications -->
         <section id="publications">
-            <h2 class="text-2xl font-bold border-l-4 border-pku-red pl-4 mb-8 text-pku-red">Selected Publications</h2>
-            <div class="space-y-6 text-left">
-                <!-- Pub 1 -->
+            <h2 class="text-2xl font-bold section-title mb-8 text-pku-red tracking-wide uppercase text-sm">Selected Publications</h2>
+            <div class="space-y-8">
+                <!-- Publication 1 -->
                 <div class="bg-white p-7 rounded-2xl shadow-sm border border-slate-100 card-hover transition-all">
-                    <div class="flex justify-between items-start mb-3">
-                        <span class="px-3 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-lg border border-amber-100 uppercase tracking-wider">Under Review</span>
-                        <span class="text-slate-400 text-sm font-medium">Dec. 2025</span>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-3 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-lg border border-amber-100">SUBMITTED (Peer Review)</span>
+                        <a href="https://arxiv.org/abs/2512.05136" target="_blank" class="text-slate-400 hover:text-pku-red transition-colors"><i class="fas fa-external-link-alt"></i></a>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">Fine-tuning an ECG Foundation Model to Predict Coronary CT Angiography Outcomes</h3>
-                    <p class="text-slate-700 text-sm mb-4">
-                        <span class="font-bold underline decoration-pku-red decoration-2">Yujie Xiao</span>, G. Tang, D. Zhang, et al.
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Fine-tuning an ECG Foundation Model to Predict Coronary CT Angiography Outcomes</h3>
+                    <p class="text-slate-700 text-sm mb-4 leading-relaxed">
+                        <span class="font-bold underline decoration-pku-red">Yujie Xiao</span>, G. Tang, D. Zhang, et al. <br>
+                        <strong>npj Digital Medicine</strong> (Nature Partner Journal, IF: 15.1), 2025.
                     </p>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        Proposed a high-precision prediction framework for Coronary CT Angiography (CCTA) results using single-lead ECG signals. Submitted to <strong>npj Digital Medicine (IF: 15.1)</strong>. 
-                        <span class="text-pku-red font-semibold">(Independent First Author)</span>
+                    <p class="text-slate-500 text-xs italic">
+                        Role: First Author. This work explores AI-ECG's capability to predict CCTA findings and support clinical decision-making.
                     </p>
                 </div>
 
-                <!-- Pub 2 -->
+                <!-- Publication 2 -->
                 <div class="bg-white p-7 rounded-2xl shadow-sm border border-slate-100 card-hover transition-all">
-                    <div class="flex justify-between items-start mb-3">
-                        <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-lg uppercase tracking-wider">arXiv preprint</span>
-                        <span class="text-slate-400 text-sm font-medium">Oct. 2025</span>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-lg border border-slate-200">PREPRINT</span>
+                        <a href="https://arxiv.org/abs/2510.22301" target="_blank" class="text-slate-400 hover:text-pku-red transition-colors"><i class="fas fa-external-link-alt"></i></a>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">AnyECG-Lab: An Exploration Study of Fine-tuning an ECG Foundation Model to Estimate Laboratory Values</h3>
-                    <p class="text-slate-700 text-sm mb-4">
-                        <span class="font-bold underline decoration-pku-red decoration-2">Yujie Xiao</span>, G. Tang, W. Liu, et al.
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">AnyECG-Lab: An Exploration Study of Fine-tuning an ECG Foundation Model to Estimate Laboratory Values</h3>
+                    <p class="text-slate-700 text-sm mb-4 leading-relaxed">
+                        <span class="font-bold underline decoration-pku-red">Yujie Xiao</span>, G. Tang, W. Liu, et al. <br>
+                        <strong>arXiv:2510.22301</strong>, 2025.
                     </p>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        Explored the potential of AI-ECG in mining laboratory test information directly from non-invasive ECG waveforms. 
-                        <span class="text-pku-red font-semibold">(Independent First Author)</span>
+                    <p class="text-slate-500 text-xs italic">
+                        Role: Independent First Author. Explored non-invasive estimation of laboratory indicators directly from ECG signals using deep learning foundation models.
                     </p>
                 </div>
 
-                <div class="pt-4 text-center">
-                    <a href="https://scholar.google.com/citations?user=-UCNBfkAAAAJ" target="_blank" class="group text-pku-red font-bold hover:text-pku-dark flex items-center justify-center gap-2">
-                        View Full Publications on Google Scholar 
-                        <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                    </a>
+                <!-- Publication 3 (Co-author) -->
+                <div class="bg-white p-7 rounded-2xl shadow-sm border border-slate-100 card-hover transition-all opacity-90">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-lg border border-slate-200">PREPRINT</span>
+                        <a href="https://arxiv.org/abs/2511.01747" target="_blank" class="text-slate-400 hover:text-pku-red transition-colors"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">AnyPPG: An ECG-Guided PPG Foundation Model for Holistic Health Profiling</h3>
+                    <p class="text-slate-700 text-sm leading-relaxed">
+                        G. Nie, G. Tang, <span class="font-bold">Yujie Xiao</span>, et al. <br>
+                        <strong>arXiv:2511.01747</strong>, 2025.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Experience & Projects -->
+        <section id="projects">
+            <h2 class="text-2xl font-bold section-title mb-8 text-pku-red tracking-wide uppercase text-sm">Research & Engineering</h2>
+            <div class="grid grid-cols-1 gap-6">
+                <!-- Project 1: Wearable -->
+                <div class="bg-pku-red text-white p-8 rounded-[2rem] relative overflow-hidden shadow-2xl group border border-pku-red hover:bg-pku-dark transition-all">
+                    <div class="relative z-10">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-0.5 bg-white/20 rounded text-[10px] font-bold uppercase">National Innovation Program</span>
+                            <span class="px-2 py-0.5 bg-white/20 rounded text-[10px] font-bold uppercase">Challenge Cup 1st Prize</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">LLM-based Wearable Physiological Intervention System</h3>
+                        <p class="text-red-50 text-sm leading-relaxed max-w-2xl">
+                            Lead PI. Developed a portable multimodal device integrating high-precision ECG/PPG sensors. Deployed lightweight deep learning algorithms and LLMs as reasoning cores for personalized health intervention based on real-time signal processing.
+                        </p>
+                    </div>
+                    <i class="fas fa-heartbeat absolute -right-8 -bottom-8 text-[12rem] opacity-10 group-hover:scale-110 transition-transform duration-700"></i>
+                </div>
+
+                <!-- Project 2: Chest Pain CV -->
+                <div class="bg-slate-900 text-white p-8 rounded-[2rem] relative overflow-hidden shadow-xl border border-slate-800 hover:border-pku-red transition-all group">
+                    <div class="relative z-10">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-0.5 bg-pku-red/40 rounded text-[10px] font-bold uppercase">PKU "Superior Star"</span>
+                            <span class="px-2 py-0.5 bg-blue-500/40 rounded text-[10px] font-bold uppercase">Computer Vision</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">CV for Paper-based ECG Triple Rule-Out</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed max-w-2xl">
+                            Lead PI. Constructed a computer vision diagnosis model to identify high-risk features directly from paper-based ECG images in emergency scenarios. Implemented a multi-task framework for chest pain classification and risk scoring.
+                        </p>
+                    </div>
+                    <i class="fas fa-file-medical absolute -right-8 -bottom-8 text-[12rem] opacity-5 group-hover:scale-110 transition-transform duration-700"></i>
+                </div>
+
+                <!-- Project 3: Datathon & Fundus -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm card-hover">
+                        <h4 class="font-bold text-slate-900 mb-2">Datathon: ICU Prognosis & NSTEMI</h4>
+                        <p class="text-xs text-slate-500 mb-3 uppercase font-bold tracking-widest">National 1st Prize</p>
+                        <p class="text-slate-600 text-sm">Explored multi-modal协同诊断 (Echo reports + ECG waves) for NSTEMI. Developed XAI-based algorithms for ICU subtype identification and prognosis prediction.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm card-hover">
+                        <h4 class="font-bold text-slate-900 mb-2">Fundus Image Segmentation & Denoising</h4>
+                        <p class="text-xs text-slate-500 mb-3 uppercase font-bold tracking-widest">PKU Undergraduate Research</p>
+                        <p class="text-slate-600 text-sm">Optimized U-Net architectures for fine vessel segmentation. Built a two-stage CNN pipeline for intelligent denoising on clinical datasets (DRIVE, STARE).</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Honors & Awards -->
         <section id="honors">
-            <h2 class="text-2xl font-bold border-l-4 border-pku-red pl-4 mb-8 text-pku-red">Honors & Awards</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="group flex items-center gap-4 bg-white p-5 rounded-2xl shadow-sm border border-slate-50 hover:border-pku-red transition-all">
-                    <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-pku-red">
-                        <i class="fas fa-trophy"></i>
+            <h2 class="text-2xl font-bold section-title mb-8 text-pku-red tracking-wide uppercase text-sm">Honors & Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-slate-100 hover:border-pku-red transition-all">
+                        <i class="fas fa-trophy text-pku-red"></i>
+                        <span class="text-sm font-semibold">National Scholarship (2024-2025)</span>
                     </div>
-                    <div>
-                        <p class="font-bold text-slate-800 text-sm md:text-base">National Scholarship</p>
-                        <p class="text-[10px] text-slate-400 uppercase tracking-widest">Academic Excellence</p>
+                    <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-slate-100 hover:border-pku-red transition-all">
+                        <i class="fas fa-award text-pku-red"></i>
+                        <span class="text-sm font-semibold">PKU Merit Student Pacesetter (2023-2024)</span>
                     </div>
-                </div>
-                <div class="group flex items-center gap-4 bg-white p-5 rounded-2xl shadow-sm border border-slate-50 hover:border-pku-red transition-all">
-                    <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-pku-red">
-                        <i class="fas fa-medal"></i>
+                    <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-slate-100 hover:border-pku-red transition-all">
+                        <i class="fas fa-medal text-pku-red"></i>
+                        <span class="text-sm font-semibold">Datathon National 1st Prize</span>
                     </div>
-                    <div>
-                        <p class="font-bold text-slate-800 text-sm md:text-base">Merit Student Pacesetter</p>
-                        <p class="text-[10px] text-slate-400 uppercase tracking-widest">Peking University</p>
-                    </div>
-                </div>
-                <div class="group flex items-center gap-4 bg-white p-5 rounded-2xl shadow-sm border border-slate-50 hover:border-pku-red transition-all">
-                    <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-pku-red">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <div>
-                        <p class="font-bold text-slate-800 text-sm md:text-base">Datathon National 1st Prize</p>
-                        <p class="text-[10px] text-slate-400 uppercase tracking-widest">Medical Big Data</p>
+                    <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-slate-100 hover:border-pku-red transition-all">
+                        <i class="fas fa-star text-pku-red"></i>
+                        <span class="text-sm font-semibold">16th National Math Competition (3rd Prize)</span>
                     </div>
                 </div>
-                <div class="group flex items-center gap-4 bg-white p-5 rounded-2xl shadow-sm border border-slate-50 hover:border-pku-red transition-all">
-                    <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-pku-red">
-                        <i class="fas fa-star"></i>
+                
+                <div class="bg-slate-900 text-white p-8 rounded-3xl">
+                    <h4 class="font-bold mb-6 flex items-center gap-2 tracking-widest uppercase text-xs">
+                        <span class="w-2 h-2 bg-pku-red rounded-full"></span> Technical Stack
+                    </h4>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-xs text-slate-400 mb-2 uppercase">Core Languages</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-white/10 rounded text-xs">Python</span>
+                                <span class="px-2 py-1 bg-white/10 rounded text-xs">PyTorch</span>
+                                <span class="px-2 py-1 bg-white/10 rounded text-xs">Matlab</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400 mb-2 uppercase">Specialized Knowledge</p>
+                            <div class="flex flex-wrap gap-2 text-pku-red font-medium">
+                                <span class="px-2 py-1 bg-white rounded text-xs">Signal Processing (DSP)</span>
+                                <span class="px-2 py-1 bg-white rounded text-xs">Foundation Models</span>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <p class="font-bold text-slate-800 text-sm md:text-base">Math Competition 3rd Prize</p>
-                        <p class="text-[10px] text-slate-400 uppercase tracking-widest">National Level (Non-Math)</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Research Projects -->
-        <section id="projects">
-            <h2 class="text-2xl font-bold border-l-4 border-pku-red pl-4 mb-8 text-pku-red">Featured Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-pku-red text-white p-8 rounded-[2rem] relative overflow-hidden shadow-xl shadow-red-900/20 card-hover transition-all">
-                    <div class="relative z-10">
-                        <h3 class="text-xl font-bold mb-2">Wearable Multimodal System</h3>
-                        <p class="text-red-200 text-xs mb-6 font-medium uppercase tracking-widest">National Innovation Training Program</p>
-                        <p class="text-red-50 leading-relaxed text-sm">
-                            Developed a portable physiological signal acquisition device with LLM-based personalized health intervention.
-                        </p>
-                    </div>
-                    <i class="fas fa-wave-square absolute -right-8 -bottom-8 text-[10rem] opacity-10"></i>
-                </div>
-
-                <div class="bg-slate-900 text-white p-8 rounded-[2rem] relative overflow-hidden shadow-xl card-hover transition-all">
-                    <div class="relative z-10">
-                        <h3 class="text-xl font-bold mb-2">CV for Triple Rule-Out</h3>
-                        <p class="text-slate-400 text-xs mb-6 font-medium uppercase tracking-widest">PKU "Superior Star" Program</p>
-                        <p class="text-slate-300 leading-relaxed text-sm">
-                            Constructed Computer Vision models to identify high-risk features directly from paper-based ECG images.
-                        </p>
-                    </div>
-                    <i class="fas fa-stethoscope absolute -right-8 -bottom-8 text-[10rem] opacity-5"></i>
                 </div>
             </div>
         </section>
 
     </main>
-
-    <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 py-16 mt-20">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <img src="https://www.pku.edu.cn/images/logo.png" alt="PKU" class="h-12 mx-auto mb-6 grayscale opacity-50 hover:grayscale-0 transition-all cursor-pointer">
-            <p class="text-slate-500 font-medium italic mb-2">"Integrating Technology with Medicine for Better Healthcare."</p>
-            <p class="text-slate-400 text-xs uppercase tracking-widest">© 2025 Yujie Xiao · Peking University</p>
-        </div>
-    </footer>
 
 </body>
 </html>
