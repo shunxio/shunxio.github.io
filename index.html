@@ -23,6 +23,9 @@
         body { font-family: 'Inter', -apple-system, sans-serif; scroll-behavior: smooth; }
         .pku-gradient { background: linear-gradient(135deg, #8C0000 0%, #B30000 100%); }
         .card-hover:hover { transform: translateY(-4px); transition: all 0.3s ease; border-color: #8C0000; }
+        /* Smooth fade-in for image */
+        .profile-img { opacity: 0; transition: opacity 0.5s ease-in-out; }
+        .profile-img.loaded { opacity: 1; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -48,10 +51,12 @@
     <!-- Hero Section -->
     <header id="about" class="py-16 bg-white">
         <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
-            <!-- Profile Image -->
+            <!-- Profile Image Container -->
             <div class="w-48 h-48 rounded-2xl bg-slate-100 flex-shrink-0 pku-gradient flex items-center justify-center shadow-2xl relative overflow-hidden group">
+                <!-- User Avatar (Instructions: Upload your photo as profile.jpg) -->
+                <img src="profile.jpg" alt="Yujie Xiao" class="profile-img absolute inset-0 w-full h-full object-cover z-10" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+                <!-- Fallback Icon if image not found -->
                 <i class="fas fa-user-graduate text-white text-6xl group-hover:scale-110 transition-transform"></i>
-                <!-- Hint: Upload your photo as profile.jpg to replace the icon -->
             </div>
             
             <div class="flex-1 text-center md:text-left">
@@ -85,11 +90,11 @@
 
         <!-- Education -->
         <section id="education">
-            <h2 class="text-2xl font-bold border-l-4 border-pku-red pl-4 mb-8">Education</h2>
+            <h2 class="text-2xl font-bold border-l-4 border-pku-red pl-4 mb-8 text-pku-red">Education</h2>
             <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col md:flex-row justify-between gap-4">
                 <div>
                     <h3 class="text-xl font-bold text-slate-900">Peking University (PKU)</h3>
-                    <p class="text-pku-red font-semibold mb-4">B.S. in Medical Imaging Technology</p>
+                    <p class="text-pku-red font-semibold mb-4 text-sm uppercase tracking-wide">B.S. in Medical Imaging Technology</p>
                     <ul class="space-y-3 text-slate-600">
                         <li class="flex items-center gap-2">
                             <i class="fas fa-check-circle text-pku-red text-sm"></i>
@@ -114,7 +119,7 @@
 
         <!-- Publications -->
         <section id="publications">
-            <h2 class="text-2xl font-bold border-l-4 border-pku-red pl-4 mb-8">Selected Publications</h2>
+            <h2 class="text-2xl font-bold border-l-4 border-pku-red pl-4 mb-8 text-pku-red">Selected Publications</h2>
             <div class="space-y-6 text-left">
                 <!-- Pub 1 -->
                 <div class="bg-white p-7 rounded-2xl shadow-sm border border-slate-100 card-hover transition-all">
@@ -159,15 +164,15 @@
 
         <!-- Honors & Awards -->
         <section id="honors">
-            <h2 class="text-2xl font-bold border-l-4 border-pku-red pl-4 mb-8">Honors & Awards</h2>
+            <h2 class="text-2xl font-bold border-l-4 border-pku-red pl-4 mb-8 text-pku-red">Honors & Awards</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="group flex items-center gap-4 bg-white p-5 rounded-2xl shadow-sm border border-slate-50 hover:border-pku-red transition-all">
                     <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-pku-red">
                         <i class="fas fa-trophy"></i>
                     </div>
                     <div>
-                        <p class="font-bold text-slate-800">National Scholarship</p>
-                        <p class="text-xs text-slate-400 uppercase tracking-tighter">Academic Excellence</p>
+                        <p class="font-bold text-slate-800 text-sm md:text-base">National Scholarship</p>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest">Academic Excellence</p>
                     </div>
                 </div>
                 <div class="group flex items-center gap-4 bg-white p-5 rounded-2xl shadow-sm border border-slate-50 hover:border-pku-red transition-all">
@@ -175,8 +180,8 @@
                         <i class="fas fa-medal"></i>
                     </div>
                     <div>
-                        <p class="font-bold text-slate-800">Merit Student Pacesetter</p>
-                        <p class="text-xs text-slate-400 uppercase tracking-tighter">Peking University</p>
+                        <p class="font-bold text-slate-800 text-sm md:text-base">Merit Student Pacesetter</p>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest">Peking University</p>
                     </div>
                 </div>
                 <div class="group flex items-center gap-4 bg-white p-5 rounded-2xl shadow-sm border border-slate-50 hover:border-pku-red transition-all">
@@ -184,8 +189,8 @@
                         <i class="fas fa-award"></i>
                     </div>
                     <div>
-                        <p class="font-bold text-slate-800">Datathon National 1st Prize</p>
-                        <p class="text-xs text-slate-400 uppercase tracking-tighter">Medical Big Data</p>
+                        <p class="font-bold text-slate-800 text-sm md:text-base">Datathon National 1st Prize</p>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest">Medical Big Data</p>
                     </div>
                 </div>
                 <div class="group flex items-center gap-4 bg-white p-5 rounded-2xl shadow-sm border border-slate-50 hover:border-pku-red transition-all">
@@ -193,8 +198,8 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <div>
-                        <p class="font-bold text-slate-800">Math Competition 3rd Prize</p>
-                        <p class="text-xs text-slate-400 uppercase tracking-tighter">National Level (Non-Math)</p>
+                        <p class="font-bold text-slate-800 text-sm md:text-base">Math Competition 3rd Prize</p>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest">National Level (Non-Math)</p>
                     </div>
                 </div>
             </div>
@@ -202,25 +207,25 @@
 
         <!-- Research Projects -->
         <section id="projects">
-            <h2 class="text-2xl font-bold border-l-4 border-pku-red pl-4 mb-8">Featured Projects</h2>
+            <h2 class="text-2xl font-bold border-l-4 border-pku-red pl-4 mb-8 text-pku-red">Featured Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-pku-red text-white p-8 rounded-[2rem] relative overflow-hidden shadow-xl shadow-red-900/20">
+                <div class="bg-pku-red text-white p-8 rounded-[2rem] relative overflow-hidden shadow-xl shadow-red-900/20 card-hover transition-all">
                     <div class="relative z-10">
                         <h3 class="text-xl font-bold mb-2">Wearable Multimodal System</h3>
-                        <p class="text-red-200 text-sm mb-6 font-medium">National Innovation Training Program | Leader</p>
+                        <p class="text-red-200 text-xs mb-6 font-medium uppercase tracking-widest">National Innovation Training Program</p>
                         <p class="text-red-50 leading-relaxed text-sm">
-                            Developed a portable physiological signal acquisition device with LLM-based personalized health intervention, achieving a "Monitoring-Analysis-Action" closed-loop system.
+                            Developed a portable physiological signal acquisition device with LLM-based personalized health intervention.
                         </p>
                     </div>
                     <i class="fas fa-wave-square absolute -right-8 -bottom-8 text-[10rem] opacity-10"></i>
                 </div>
 
-                <div class="bg-slate-900 text-white p-8 rounded-[2rem] relative overflow-hidden shadow-xl">
+                <div class="bg-slate-900 text-white p-8 rounded-[2rem] relative overflow-hidden shadow-xl card-hover transition-all">
                     <div class="relative z-10">
                         <h3 class="text-xl font-bold mb-2">CV for Triple Rule-Out</h3>
-                        <p class="text-slate-400 text-sm mb-6 font-medium">PKU "Superior Star" Program | PI</p>
+                        <p class="text-slate-400 text-xs mb-6 font-medium uppercase tracking-widest">PKU "Superior Star" Program</p>
                         <p class="text-slate-300 leading-relaxed text-sm">
-                            Constructed Computer Vision models to identify high-risk features directly from paper-based ECG images, enabling rapid triage in emergency chest pain scenarios.
+                            Constructed Computer Vision models to identify high-risk features directly from paper-based ECG images.
                         </p>
                     </div>
                     <i class="fas fa-stethoscope absolute -right-8 -bottom-8 text-[10rem] opacity-5"></i>
@@ -230,6 +235,14 @@
 
     </main>
 
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-16 mt-20">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <img src="https://www.pku.edu.cn/images/logo.png" alt="PKU" class="h-12 mx-auto mb-6 grayscale opacity-50 hover:grayscale-0 transition-all cursor-pointer">
+            <p class="text-slate-500 font-medium italic mb-2">"Integrating Technology with Medicine for Better Healthcare."</p>
+            <p class="text-slate-400 text-xs uppercase tracking-widest">© 2025 Yujie Xiao · Peking University</p>
+        </div>
+    </footer>
 
 </body>
 </html>
