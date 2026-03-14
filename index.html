@@ -52,9 +52,15 @@
     <header id="about" class="py-20 bg-white">
         <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
             <!-- Profile Image Container -->
-            <div class="w-52 h-52 rounded-2xl bg-slate-100 flex-shrink-0 pku-gradient flex items-center justify-center shadow-2xl relative overflow-hidden group">
-                <!-- Using profile.png as requested -->
-                <img src="profile.png" alt="Yujie Xiao" class="profile-img absolute inset-0 w-full h-full object-cover z-10" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+            <div class="w-64 md:w-72 min-h-[280px] rounded-2xl bg-slate-100 flex-shrink-0 pku-gradient flex items-center justify-center shadow-2xl relative overflow-hidden group">
+                <img 
+                    src="profile.png" 
+                    alt="Yujie Xiao" 
+                    class="profile-img absolute inset-0 w-full h-full object-contain z-10"
+                    style="transform: translateY(-8px);"
+                    onload="this.classList.add('loaded')" 
+                    onerror="this.style.display='none'"
+                >
                 <i class="fas fa-user-graduate text-white text-7xl group-hover:scale-110 transition-transform"></i>
             </div>
             
